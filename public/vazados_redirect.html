@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acesso Exclusivo</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--tg-blue:#2AABEE;
+--tg-blue2:#229ED9;
+--tg-dark2:#0E1621;
+}
+html,body{height:100%;overflow:hidden}
+body{
+background:var(--tg-dark2);
+font-family:'DM Sans',sans-serif;
+color:#fff;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+min-height:100vh;
+position:relative;
+}
+.bg-glow{
+position:fixed;inset:0;
+background:radial-gradient(ellipse 70% 50% at 50% 0%, rgba(42,171,238,0.06) 0%, transparent 70%);
+pointer-events:none;z-index:0;
+}
+.wrap{
+position:relative;z-index:1;
+width:100%;max-width:380px;
+padding:0;
+display:flex;flex-direction:column;align-items:center;
+}
+.hero{
+width:100%;
+height:320px;
+position:relative;
+overflow:hidden;
+}
+.hero-img{
+width:100%;height:100%;
+
+
+filter:blur(4px) brightness(0.55);
+
+object-fit:contain;width:100%;height:100%;display:block;background:#0a1520;
+}
+.hero-gradient{
+position:absolute;inset:0;
+background:linear-gradient(to bottom, rgba(14,22,33,0.2) 0%, rgba(14,22,33,0.95) 100%);
+}
+.hero-badge{
+position:absolute;top:16px;left:50%;transform:translateX(-50%);
+display:flex;align-items:center;gap:6px;
+background:rgba(42,171,238,0.15);
+border:0.5px solid rgba(42,171,238,0.3);
+border-radius:100px;
+padding:5px 14px;
+font-size:11px;font-weight:500;
+letter-spacing:0.1em;text-transform:uppercase;
+color:rgba(42,171,238,0.95);
+white-space:nowrap;
+}
+.badge-dot{
+width:6px;height:6px;border-radius:50%;
+background:var(--tg-blue);
+animation:pulse 1.5s infinite;
+flex-shrink:0;
+}
+.hero-lock{
+position:absolute;
+bottom:20px;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.lock-circle{
+width:48px;height:48px;border-radius:50%;
+background:rgba(42,171,238,0.15);
+border:0.5px solid rgba(42,171,238,0.3);
+display:flex;align-items:center;justify-content:center;
+font-size:22px;
+}
+.lock-text{
+font-size:10px;
+letter-spacing:0.12em;text-transform:uppercase;
+color:rgba(255,255,255,0.35);
+white-space:nowrap;
+}
+.content{
+width:100%;
+padding:24px 28px 0;
+display:flex;flex-direction:column;align-items:center;
+}
+h1{
+font-family:'Bebas Neue',sans-serif;
+font-size:46px;line-height:0.95;
+text-align:center;
+letter-spacing:0.02em;
+margin-bottom:8px;
+color:#fff;
+animation:fadein 0.5s ease 0.1s both;
+}
+h1 span{color:var(--tg-blue)}
+.sub{
+font-size:13px;
+color:rgba(255,255,255,0.35);
+text-align:center;
+line-height:1.6;
+margin-bottom:28px;
+font-weight:300;
+animation:fadein 0.5s ease 0.2s both;
+}
+.count{
+display:flex;align-items:center;gap:6px;
+font-size:12px;
+color:rgba(255,255,255,0.25);
+margin-bottom:24px;
+animation:fadein 0.5s ease 0.25s both;
+}
+.count-dot{width:6px;height:6px;border-radius:50%;background:#4caf50;animation:pulse 2s infinite}
+.count b{color:rgba(255,255,255,0.5);font-weight:500}
+.cta{
+width:100%;
+background:var(--tg-blue);
+border:none;border-radius:12px;
+padding:17px 24px;
+font-family:'Bebas Neue',sans-serif;
+font-size:22px;letter-spacing:0.08em;
+color:#fff;cursor:pointer;
+position:relative;overflow:hidden;
+animation:fadein 0.5s ease 0.3s both;
+transition:transform 0.15s,background 0.15s,box-shadow 0.15s;
+box-shadow:0 8px 28px rgba(42,171,238,0.2);
+text-decoration:none;object-fit:contain;width:100%;height:100%;display:block;background:#0a1520;text-align:center;
+}
+.cta:hover{background:var(--tg-blue2);transform:translateY(-2px);box-shadow:0 12px 36px rgba(42,171,238,0.3)}
+.cta:active{transform:scale(0.98)}
+.cta-shine{
+position:absolute;top:0;left:-100%;width:60%;height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent);
+animation:shine 2.5s infinite 1s;
+}
+.warning{
+margin-top:14px;
+font-size:11px;
+color:rgba(255,255,255,0.1);
+text-align:center;
+animation:fadein 0.5s ease 0.35s both;
+}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+@keyframes shine{0%{left:-100%}100%{left:200%}}
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="wrap">
+  <div class="hero">
+    <img class="hero-img" src="preview.png" alt="">
+    <div class="hero-gradient"></div>
+    <div class="hero-badge"><div class="badge-dot"></div>acesso restrito +18</div>
+    <div class="hero-lock">
+      <div class="lock-circle">🔒</div>
+      <div class="lock-text">desbloqueie para ver tudo</div>
+    </div>
+  </div>
+  <div class="content">
+    <h1>O MELHOR<br>GRUPO DE <span>VAZADOS</span></h1>
+    <p class="sub">conteúdo que não existe<br>em nenhuma outra plataforma</p>
+    <div class="count"><div class="count-dot"></div><b>2.847</b>&nbsp;pessoas acessando agora</div>
+    <a class="cta" href="https://novo.cloackernovodia25daizyushark.site/l/3aa22be5">
+      <div class="cta-shine"></div>
+      DESBLOQUEAR AGORA →
+    </a>
+    <p class="warning">⚠ exclusivo para maiores de 18 anos</p>
+  </div>
+</div>
+</body>
+</html>
